@@ -1,7 +1,7 @@
 from heapq import heappush, heappop
 
 
-def read(vxs, edges):
+def read_graph(vxs, edges):
     graph = [[] for i in range(vxs)]
     for i in range(edges):
         t1, t2, w = tuple(map(int, input().split()))
@@ -24,9 +24,9 @@ def dijkstra(graph, start, vertex_quantity, path_length):
     return path_length
 
 
-main_towns = list(map(int, input().split()))
+main_towns = map(int, input().split())
 towns, roads, main_towns = main_towns[0], main_towns[1], main_towns[2:]
-my_graph = read(towns, roads)
+my_graph = read_graph(towns, roads)
 lengths = [(float('+inf'), -1)] * towns
 for main_town in main_towns:
     dijkstra(my_graph, main_town, towns, lengths)
